@@ -1,0 +1,9 @@
+.typingForm {
+    max-width: 500px;
+    margin: auto;
+}
+
+.typingForm .form-control {
+    height: 500px; /* Increase the height of form controls */
+    width: 500px;
+  }
