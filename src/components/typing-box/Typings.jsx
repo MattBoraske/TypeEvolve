@@ -11,5 +11,4 @@ const Typings = () =>{
     </Form>
 };
 
-
 export default Typings;

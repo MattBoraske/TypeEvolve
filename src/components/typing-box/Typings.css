@@ -7,6 +7,6 @@
 
 .typingForm .form-control {
     font-family: 'Source Code Pro', monospace;
-    height: 500px; /* Increase the height of form controls */
+    height: 100px; /* Increase the height of form controls */
     width: 500px;
   }

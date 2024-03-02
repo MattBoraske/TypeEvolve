@@ -1,5 +1,5 @@
 import './App.css';
-import Typings from './components/Typings';
+import Typings from './components/typing-box/Typings';
 
 
 function App() {
@@ -13,15 +13,6 @@ function App() {
         The AI Typing Helper.
       </h3>
       <Typings></Typings>
-        
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
     </div>
   );
