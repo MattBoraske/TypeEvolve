@@ -12,7 +12,6 @@ function App() {
         <h3>
           The AI Typing Helper.
         </h3>
-        {/* Render ParentComponent here */}
         <ParentComponent />
       </header>
     </div>
