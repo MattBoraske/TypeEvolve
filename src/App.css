@@ -1,15 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&display=swap');
+
 .App {
   text-align: center;
 }
 
 .AppName{
+  font-family: 'Source Code Pro', monospace;
   size: 200%;
   font-size:3em;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-style: bold;
 }
 
 .App-logo {
+  font-family: 'Source Code Pro', monospace;
   height: 40vmin;
   pointer-events: none;
 }
@@ -29,6 +32,8 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  font-family: 'Source Code Pro', monospace;
+
 }
 
 .App-link {

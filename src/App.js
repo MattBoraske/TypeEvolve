@@ -1,29 +1,18 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
-import Typings from './components/Typings';
-
+import ParentComponent from './components/parent-component/parent-component';// Adjust the import path as necessary
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-      <h1 className="AppName">
+        <h1 className="AppName">
           TetraTyper
-      </h1>
-      <h3>
-        The AI Typing Helper.
-      </h3>
-      <Typings></Typings>
-        <img src={logo} className="App-logo" alt="logo" />
-        
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        </h1>
+        <h3>
+          The AI Typing Helper.
+        </h3>
+        <ParentComponent />
       </header>
     </div>
   );

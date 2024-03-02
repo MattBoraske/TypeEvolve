@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&display=swap');
+
+.text-box {
+  border: 2px solid rgba(0, 0, 0, 0.5); /* Semi-transparent black border */
+  padding: 20px; /* Padding inside the box */
+  margin: 20px auto; /* Centered margin with auto */
+  display: inline-block; /* Only as wide as necessary */
+  background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white background */
+  font-size: 16px; /* Font size */
+  color: #c30707; /* Text color */
+  font-family: 'Source Code Pro', monospace; /* Font family */
+}
+
+.text-box-to-type-to {
+  border: 2px solid rgba(0, 0, 0, 0.5); /* Semi-transparent black border */
+  padding: 20px; /* Padding inside the box */
+  margin: 20px auto; /* Centered margin with auto */
+  display: inline-block; /* Only as wide as necessary */
+  background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white background */
+  font-size: 16px; /* Font size */
+  color: #333; /* Text color */
+  font-family: 'Source Code Pro', monospace; /* Font family */
+}
