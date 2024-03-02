@@ -1,6 +1,6 @@
 import './App.css';
 import Typings from './components/typing-box/Typings';
-
+import TextBox from './components/target-typing-box/TextBox';
 
 function App() {
   return (
@@ -13,6 +13,7 @@ function App() {
         The AI Typing Helper.
       </h3>
       <Typings></Typings>
+      <TextBox></TextBox>
       </header>
     </div>
   );
