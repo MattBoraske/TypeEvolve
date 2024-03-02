@@ -1,5 +1,3 @@
-Hen Hacks 2024
-
 [Google Docs](https://docs.google.com/document/d/1rpS6eoXiWS2pz4CO6Unv7P4owfa87kCua4z94uJKJ1U/edit)
 
 [Model](https://huggingface.co/TheBloke/CapybaraHermes-2.5-Mistral-7B-GGUF)
