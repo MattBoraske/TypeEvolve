@@ -5,10 +5,14 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+      <h1>
+          TetraTyper
+      </h1>
+      <h2>
+        The AI Typing Helper
+      </h2>
         <img src={logo} className="App-logo" alt="logo" />
-        <h1>
-          Tetra Typer
-        </h1>
+        
         <a
           className="App-link"
           href="https://reactjs.org"
