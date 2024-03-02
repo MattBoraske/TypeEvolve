@@ -1,19 +1,19 @@
+import React from 'react';
 import './App.css';
-import Typings from './components/typing-box/Typings';
-import TextBox from './components/target-typing-box/TextBox';
+import ParentComponent from './components/parent-component/parent-component';// Adjust the import path as necessary
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-      <h1 className="AppName">
+        <h1 className="AppName">
           TetraTyper
-      </h1>
-      <h3>
-        The AI Typing Helper.
-      </h3>
-      <Typings></Typings>
-      <TextBox></TextBox>
+        </h1>
+        <h3>
+          The AI Typing Helper.
+        </h3>
+        {/* Render ParentComponent here */}
+        <ParentComponent />
       </header>
     </div>
   );

@@ -1,13 +1,11 @@
 import React from 'react';
-import './TextBox.css'; // Ensure the CSS file name matches
+import './TextBox.css';
 
-const TextBox = () => {
-  // Hardcoded plain sample text
-  const text = "do each can can find as been see some day which how that been it would him so did them on into people";
+const TextBox = ({ text }) => { // Destructure the text prop
 
   return (
     <div className="text-box">
-      {text}
+      {text} 
     </div>
   );
 };
