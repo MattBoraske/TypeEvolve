@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&display=swap');
+
 .typingForm {
     max-width: 500px;
     margin: auto;
 }
 
 .typingForm .form-control {
+    font-family: 'Source Code Pro', monospace;
     height: 500px; /* Increase the height of form controls */
     width: 500px;
   }
