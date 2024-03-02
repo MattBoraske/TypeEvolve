@@ -6,9 +6,9 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Tetra hacks
-        </p>
+        <h1>
+          Tetra Typer
+        </h1>
         <a
           className="App-link"
           href="https://reactjs.org"
