@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Typings from '../typing-box/Typings';
-import TextBox from '../target-typing-box/target';
+import TextBox from '../target-typing-box/Target';
 
 const ParentComponent = () => {
   // State to hold the input value
