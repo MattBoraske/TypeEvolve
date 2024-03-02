@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import Typings from './components/Typings';
 
@@ -14,7 +13,6 @@ function App() {
         The AI Typing Helper.
       </h3>
       <Typings></Typings>
-        <img src={logo} className="App-logo" alt="logo" />
         
         <a
           className="App-link"
