@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Keyboard.css';
+import './keyboard.css';
 
 /**
  * Decomposes an input string and maps each index, 0 for correct accuracy and 1 for a missed key
