@@ -7,11 +7,11 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1 className="AppName">
-          TetraTyper
+        Type Evolve
         </h1>
-        <h3 className="typingEffect">
-        The AI Typing Helper.
-        </h3>
+        <h2 className="typingEffect">
+        The AI Typing Trainer.
+        </h2>
         <MasterComponent />
       </header>
     </div>

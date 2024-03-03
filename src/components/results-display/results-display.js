@@ -1,38 +1,37 @@
 import React, { useState } from 'react';
-import Keyboard from '../keyboard-component/Keyboard';
+import Keyboard from '../keyboard-component/keyboard';
 import StatsDisplay from '../stats-component/stats';
 import ResetButton from '../reset-button/reset-button';
 import './results-display.css';
 import axios from 'axios';
+import { BeatLoader } from 'react-spinners'; // Import the spinner component
 
 const difficultyLevels = ['very simple', 'simple', 'average', 'complex', 'very complex'];
 
 const ResultsDisplay = ({ elapsedTime, targetText, text, comparisonResults, keysTyped, setTargetText}) => {
-  //console.log('comparisonResults beginning of results display', comparisonResults);
   const [realComparisonResults, setRealComparisonResults] = useState(comparisonResults);
+  const [isLoading, setIsLoading] = useState(false); // State to track loading status
 
   const clearDisplay = (e) => {
     e.preventDefault();
     setRealComparisonResults(null);
-    // call createStory with the words and letters from the comparisonResults
+    setIsLoading(true); // Start loading
+
     let words = comparisonResults.missedWords;
     let letters = comparisonResults.errorCharacters;
     let accuracy = comparisonResults.accuracy;
     let difficulty = difficultyLevels[determineDifficulty(accuracy)];
-    
-    console.log('words', words);
-    console.log('letters', letters);
-    console.log('accuracy', accuracy)
-    console.log('difficulty', difficulty);
 
     createStory(words, letters, difficulty).then((story) => {
       setTargetText(story);
+      setIsLoading(false); // Stop loading
     });
   };
 
   return (
     <div className="results-display fade-in">
-      {realComparisonResults && (
+      {isLoading && <BeatLoader />} {/* Show the spinner when loading */}
+      {realComparisonResults && !isLoading && (
         <div>
           <StatsDisplay 
             realComparisonResults={realComparisonResults} 
@@ -45,7 +44,6 @@ const ResultsDisplay = ({ elapsedTime, targetText, text, comparisonResults, keys
             text={text}
             keysTyped={keysTyped}
           />
-          {/* Pass clearDisplay as a callback to onReset */}
           <ResetButton onReset={clearDisplay} />
         </div>
       )}
