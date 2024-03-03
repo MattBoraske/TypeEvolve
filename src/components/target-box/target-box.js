@@ -4,8 +4,7 @@ import ResultsDisplay from '../results-display/results-display';
 import './target-box.css';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Ensure Bootstrap CSS is imported
 
-const TextBox = ({ text, targetText}) => {
-  
+const TextBox = ({ text, targetText }) => {
   const [startTime, setStartTime] = useState(null);
   const [endTime, setEndTime] = useState(null);
   const [timerRunning, setTimerRunning] = useState(false);
@@ -21,47 +20,35 @@ const TextBox = ({ text, targetText}) => {
       setEndTime(new Date());
       setTimerRunning(false);
       const results = compareInputs(targetText['targetText'], text);
-      console.log("text", decompStr(text))
-      console.log("targetText", decompStr(targetText['targetText']));
-      console.log("error characters", results.errorCharacters);
-      console.log('comparison results', comparisonResults)
       setComparisonResults(results);
-      console.log('comparison results after setting', comparisonResults)
     }
   }, [text, timerRunning, targetText, comparisonResults]);
 
   const elapsedTime = endTime ? ((endTime - startTime) / 1000).toFixed(2) : 0;
 
   const renderStyledText = () => {
-    return targetText['targetText'].split('').map((char, index) => {
+    const chars = targetText['targetText'].split('');
+    return chars.map((char, index) => {
       const match = text[index] === char;
       const charStyle = match ? 'matched-char' : 'unmatched-char';
-      return <span key={index} className={charStyle}>{char}</span>;
+      return (
+        <React.Fragment key={index-1}>
+          <span className={charStyle}>{char}</span>
+          {index+1 === text.length && <span className="cursor">|</span>}
+        </React.Fragment>
+      );
     });
   };
 
-
   return (
     <>
-      <div className="target-box">
-        <div className="target-text">
-          {renderStyledText()}
-        </div>
+      <div className="elementBelowTextBox">        
+        Your prompt:
       </div>
-       <Accordion defaultActiveKey="0">
-        <Accordion.Item eventKey="0">
-          <Accordion.Header classname='accordion-header'>How It Works</Accordion.Header>
-          <Accordion.Body>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-            minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </Accordion.Body>
-        </Accordion.Item>
-      </Accordion>
+      <div className='text-box-to-type-to'>
+        {renderStyledText()}
+        {text.length === targetText['targetText'].length && <span className="cursor">|</span>} {/* Show cursor at the end if all characters are typed */}
+      </div>
 
       {!timerRunning && endTime && (
         <ResultsDisplay
@@ -69,13 +56,12 @@ const TextBox = ({ text, targetText}) => {
           targetText={targetText['targetText']}
           text={text}           
           comparisonResults={comparisonResults}
-          setTargetText={targetText['setTargetText']}
+          setTargetText={targetText['setTargetText']} // Make sure this prop is correctly passed down and used in the ResultsDisplay component
         />
       )}
     </>
   );
 };
-
 
 export default TextBox;
 
