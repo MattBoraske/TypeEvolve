@@ -8,7 +8,9 @@ const ParentComponent = () => {
 
   // Function to update the state with the new input value
   const handleInputChange = (newValue) => {
-    setInputValue(newValue);
+    if (newValue.length >= inputValue.length) {
+      setInputValue(newValue);
+    }
   };
 
   return (

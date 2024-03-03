@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './target.css';
 
-const TextBox = ({ text }) => {
+const TextBox = ({ text, backendtext }) => {
   ////////////////////////////////////////////////////////////////
   // The target text to type goes here:
   /////////////////////////////////////////////////////////////////
@@ -47,10 +47,15 @@ const TextBox = ({ text }) => {
       </div>
       {/* Optionally display the timer or completion message */}
      {!timerRunning && endTime && (
-        <div>Time taken: {elapsedTime} seconds</div>
+        <div>Time taken: {elapsedTime} seconds
+        Target: {targetText}
+        Actual:  {text}
+        </div>
       )}
     </>
   );
 };
 
 export default TextBox;
+
+
