@@ -18,7 +18,7 @@ const TextBox = ({ text }) => {
   console.log(text.split(" ").length);
   console.log(targetText.split(" ").length);
 
-    if (text.split(" ").length - 1 === targetText.split(" ").length && timerRunning) {
+    if (text.length === targetText.length && timerRunning) {
       setEndTime(new Date());
       setTimerRunning(false);
       // Call compareInputs here and save the results in state
