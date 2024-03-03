@@ -3,6 +3,7 @@
 .typingForm {
     max-width: 500px;
     margin: auto; /* Center the form horizontally */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Horizontal offset, vertical offset, blur radius, color */
 }
 
 .typingForm .form-control {
