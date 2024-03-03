@@ -1,33 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&display=swap');
 
-
-.App-header {
-    background-color: #282c34; /* Darker background for the header */
-    padding: 20px; /* Adds padding inside the header */
-    border-radius: 10px; /* Soft, rounded corners for the header */
-    margin-bottom: 20px; /* Adds space below the header */
-}
-
-/* Styling for the main application title */
-.AppName {
-    font-size: 3rem; /* Large font size for the app name */
-    margin-bottom: 0.5em; /* Reduces space below the app name */
-}
-
-/* Subtitle styling */
-.App-header h3 {
-    font-weight: 400; /* Lighter font weight for the subtitle */
-    color: #a9b3c1; /* Subtle color for the subtitle */
-    margin-bottom: 2em; /* Adds space below the subtitle */
-}
-
-/* Typing form styling */
 .typingForm {
     max-width: 500px;
-    margin: 0 auto; /* Centers the form horizontally with shorthand margin */
-    background-color: transparent;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtler shadow for a cleaner look */
-    padding: 15px; /* Adds padding inside the typing form for spacing */
+    margin: auto; /* Center the form horizontally */
 }
 
+.typingForm .form-control {
+    font-family: 'Source Code Pro', monospace;
+    align-items: center;
+    height: 100px; /* Increased the height of form controls */
+    width: 500px;
+    font-size: 24px; /* Increase the font size */
+}
