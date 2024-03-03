@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import './target-box.css';
 import ResultsDisplay from '../results-display/results-display';
 
+
 const TextBox = ({ text }) => {
   
-  const targetText = "This is the target text";
+  const targetText = "In the heart of an ancient forest, a gentle stream flowed, whispering secrets of the ages. Leaves rustled as the wind danced through the trees, carrying tales of distant lands. The sun peeked through the canopy, casting a mosaic of light and shadow on the forest floor, creating a serene tapestry of nature's endless beauty."  ;
   const [startTime, setStartTime] = useState(null);
   const [endTime, setEndTime] = useState(null);
   const [timerRunning, setTimerRunning] = useState(false);
