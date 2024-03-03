@@ -104,13 +104,13 @@ function combineMaps(map1, map2) {
 function differMaps(map1, map2) {
   const differMap = { ...map1};
   for (let key in map2) {
-  if (differMap.hasOwnProperty(key)) {
-    differMap[key] -= map2[key];
-  } else {
-    differMap[key] = -map2[key];
+    if (differMap.hasOwnProperty(key)) {
+      differMap[key] -= map2[key];
+    } else {
+      differMap[key] = -map2[key];
+    }
   }
-}
-return differMap;
+  return differMap;
 }
 
 // Returns the characters that do not match.
