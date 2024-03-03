@@ -3,7 +3,7 @@ import './target-box.css';
 import ResultsDisplay from '../results-display/results-display';
 
 
-const TextBox = ({ text }) => {
+const TextBox = ({ text, APIKEY }) => {
   
   const targetText = "henhacks winners r us"  ;
   const [startTime, setStartTime] = useState(null);

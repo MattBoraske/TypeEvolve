@@ -4,7 +4,7 @@ import './results-display.css';
 
 
 const ResultsDisplay = ({ elapsedTime, targetText, text, comparisonResults, keysTyped }) => {
-
+  // A results state
   const [realComparisonResults, setRealComparisonResults] = useState(comparisonResults);
 
 
@@ -14,7 +14,6 @@ const ResultsDisplay = ({ elapsedTime, targetText, text, comparisonResults, keys
     setRealComparisonResults(null);
   }
 
-const ResultsDisplay = ({ elapsedTime, targetText, text, comparisonResults}) => {
   return (
     <div className="results-display fade-in"> {/* Add the fade-in class here */}
       {realComparisonResults && (
