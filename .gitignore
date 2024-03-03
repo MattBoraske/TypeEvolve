@@ -1,5 +1,5 @@
-models/
-LLAMA2_CPP_ENV/
+#ignore package-lock.json
+package-lock.json
 
 # dependencies
 /node_modules
