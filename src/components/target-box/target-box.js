@@ -31,14 +31,15 @@ const TextBox = ({ text, backendtext }) => {
       <div className="text-box">{text}</div>
       {!timerRunning && endTime && (
         <div>
-          Time taken: {elapsedTime} seconds
-          Target: {targetText}
-          Actual: {text}
+          Time taken: {elapsedTime} seconds <br></br>
+          Target: {targetText} <br></br>
+          Actual: {text} <br></br>
           {/* Display comparison results */}
           {comparisonResults && (
             <div>
-              Accuracy: {comparisonResults.accuracy}%
-              Missed words: {comparisonResults.missedWords.join(", ")}
+              <br></br>
+              Accuracy: {comparisonResults.accuracy}% <br></br>
+              Missed words: {comparisonResults.missedWords.join(", ")} <br></br>
               Error characters: {comparisonResults.errorCharacters.join(", ")}
               
               {/* Render missed words and error characters as needed */}
