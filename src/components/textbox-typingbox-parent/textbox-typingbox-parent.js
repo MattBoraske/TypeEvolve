@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import Typings from '../typing-box/typing-box';
 import TextBox from '../target-box/target-box';
 
-const ParentComponent = () => {
+const ParentComponent = (targetText) => {
+
   // State to hold the input value
   const [inputValue, setInputValue] = useState('');
 
@@ -14,7 +15,7 @@ const ParentComponent = () => {
   return (
     <div>
       <Typings onInputChange={handleInputChange} />
-      <TextBox text={inputValue} />
+      <TextBox text={inputValue} targetText={targetText} />
     </div>
   );
 };

@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
-import ParentComponent from './components/textbox-typingbox-parent/textbox-typingbox-parent';
-import ResultsDisplay from './components/results-display/results-display';
+import MasterComponent from './masterComponent';
 
 function App() {
   return (
@@ -13,8 +12,7 @@ function App() {
         <h3 className="typingEffect">
         The AI Typing Helper.
         </h3>
-        <ParentComponent />
-        <ResultsDisplay/>
+        <MasterComponent />
       </header>
     </div>
   );

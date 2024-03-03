@@ -2,10 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './target-box.css';
 import ResultsDisplay from '../results-display/results-display';
 
-
-const TextBox = ({ text, APIKEY }) => {
+const TextBox = ({ text, targetText}) => {
   
-  const targetText = "henhacks winners r us"  ;
   const [startTime, setStartTime] = useState(null);
   const [endTime, setEndTime] = useState(null);
   const [timerRunning, setTimerRunning] = useState(false);
@@ -17,21 +15,23 @@ const TextBox = ({ text, APIKEY }) => {
       setTimerRunning(true);
     }
 
-    if (text.length === targetText.length && timerRunning) {
+    if (text.length === targetText['targetText'].length && timerRunning) {
       setEndTime(new Date());
       setTimerRunning(false);
-      const results = compareInputs(targetText, text);
+      const results = compareInputs(targetText['targetText'], text);
       console.log("text", decompStr(text))
-      console.log("targetText", decompStr(targetText));
+      console.log("targetText", decompStr(targetText['targetText']));
       console.log("error characters", results.errorCharacters);
+      console.log('comparison results', comparisonResults)
       setComparisonResults(results);
+      console.log('comparison results after setting', comparisonResults)
     }
   }, [text, timerRunning, targetText]);
 
   const elapsedTime = endTime ? ((endTime - startTime) / 1000).toFixed(2) : 0;
 
   const renderStyledText = () => {
-    return targetText.split('').map((char, index) => {
+    return targetText['targetText'].split('').map((char, index) => {
       const match = text[index] === char;
       const charStyle = match ? 'matched-char' : 'unmatched-char';
       return <span key={index} className={charStyle}>{char}</span>;
@@ -47,9 +47,10 @@ const TextBox = ({ text, APIKEY }) => {
       {!timerRunning && endTime && (
         <ResultsDisplay
           elapsedTime={elapsedTime}
-          targetText={targetText}
-          text={text}
+          targetText={targetText['targetText']}
+          text={text}           
           comparisonResults={comparisonResults}
+          setTargetText={targetText['setTargetText']}
         />
       )}
     </>
