@@ -9,6 +9,7 @@ const ResultsDisplay = ({ elapsedTime, targetText, text, comparisonResults }) =>
       {comparisonResults && (
         <div>
           <p>Accuracy: {comparisonResults.accuracy}%</p>
+          <p>WPM: {(text.split(" ").length/(elapsedTime / 60)).toFixed(0)}</p>
           <p>Missed words: {comparisonResults.missedWords.join(", ")}</p>
           <p>Error characters: {comparisonResults.errorCharacters.join(", ")}</p>
           <p>Elapsed time: {elapsedTime} seconds</p>
