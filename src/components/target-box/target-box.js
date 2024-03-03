@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import './target-box.css';
+import { Accordion, Card } from 'react-bootstrap';
 import ResultsDisplay from '../results-display/results-display';
+import './target-box.css';
+import 'bootstrap/dist/css/bootstrap.min.css'; // Ensure Bootstrap CSS is imported
 
 const TextBox = ({ text, targetText}) => {
   
@@ -26,7 +28,7 @@ const TextBox = ({ text, targetText}) => {
       setComparisonResults(results);
       console.log('comparison results after setting', comparisonResults)
     }
-  }, [text, timerRunning, targetText]);
+  }, [text, timerRunning, targetText, comparisonResults]);
 
   const elapsedTime = endTime ? ((endTime - startTime) / 1000).toFixed(2) : 0;
 
@@ -41,10 +43,26 @@ const TextBox = ({ text, targetText}) => {
 
   return (
     <>
-          <div className="elementBelowTextBox">        
-        Your prompt:
+      <div className="target-box">
+        <div className="target-text">
+          {renderStyledText()}
+        </div>
       </div>
-      <div className='text-box-to-type-to'>{renderStyledText()}</div>
+       <Accordion defaultActiveKey="0">
+        <Accordion.Item eventKey="0">
+          <Accordion.Header classname='accordion-header'>How It Works</Accordion.Header>
+          <Accordion.Body>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+            minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </Accordion.Body>
+        </Accordion.Item>
+      </Accordion>
+
       {!timerRunning && endTime && (
         <ResultsDisplay
           elapsedTime={elapsedTime}
