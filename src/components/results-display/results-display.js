@@ -15,6 +15,8 @@ const ResultsDisplay = ({ elapsedTime, targetText, text, comparisonResults, keys
           <p>Elapsed time: {elapsedTime} seconds</p>
           <h3>Keyboard Heatmap</h3>
           <Keyboard 
+          targetText={targetText}
+          text={text}
           keysTyped={keysTyped}/>
         </div>
       )}
