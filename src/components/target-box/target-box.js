@@ -77,8 +77,12 @@ function compareInputs(promptInput, userInput) {
 
   let accuracy = calculateAccuracy(promptInput, userInput);
 
+  let combinedWord = 0;
+
   for (let index = 0; index < promptInputArray.length; index++) {
-    if (promptInputArray[index] !== userInputArray[index]) {
+    if (promptInputArray[index] !== userInputArray[index + combinedWord]) {
+      console.log("correct word: ",promptInputArray[index]);
+      console.log("incorrect word: ",userInputArray[index]);
       let missedWord = promptInputArray[index].replace(", ","");
       missedWord.replace(". ","");
       missedWords.push(missedWord); // Assuming missedWords is intended to be an array
