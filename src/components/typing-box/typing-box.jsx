@@ -12,7 +12,7 @@ const Typings = ({ onInputChange }) => {
   };
 
   const handleKeyDown = (event) => {
-    if (event.key !== 'Backspace' && event.key !== "Enter") {
+    if (event.key !== "Enter") {
       const newGrowingString = growingString + event.key;
       setGrowingString(newGrowingString);
     }
