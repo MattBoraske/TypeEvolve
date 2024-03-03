@@ -31,11 +31,3 @@
     padding: 15px; /* Adds padding inside the typing form for spacing */
 }
 
-.typingForm .form-control {
-    background-color: transparent;
-    font-size: 1.25rem; /* Slightly larger font size for readability */
-    color: #333; /* Dark text color for contrast */
-    border-radius: 5px; /* Soft, rounded corners for the input field */
-    box-shadow: none; /* Removes the shadow for a cleaner look */
-    margin-bottom: 1em; /* Adds space below the input field */
-}
