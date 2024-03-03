@@ -1,5 +1,5 @@
 import React from 'react';
-import Keyboard from '../keyboard-component/keyboard';
+import Keyboard from '../keyboard-component/Keyboard';
 import './results-display.css';
 
 const ResultsDisplay = ({ elapsedTime, targetText, text, comparisonResults, keysTyped }) => {
