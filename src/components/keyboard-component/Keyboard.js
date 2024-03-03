@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './keyboard.css';
+import './Keyboard.css';
 
 const Keyboard = () => {
   const accuracy = {
