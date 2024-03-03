@@ -133,19 +133,6 @@ function getErrorCharacters(map1) {
   return errorCharacters;
 }
 
-// Get matches of characters side by side (NOT NEEDED)
-function compCountStr(str1,str2) {
-  let maxlength = Math.max(str1.length,str2.length);
-  let matchCount = 0;
-  for (let index = 0; index < maxlength; index++) {
-      if(index < str1.length && index < str2.length) {
-          if (str1.charAt(index) === str2.charAt(index)) {
-              matchCount++;
-          }
-      }
-  }
-  return matchCount;
-} 
 
 // Breaks down a string into the characters and their occurences.
 function decompStr(inputStr) {
