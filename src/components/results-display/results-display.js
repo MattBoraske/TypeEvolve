@@ -1,30 +1,25 @@
 import React from 'react';
-import Keyboard from '../keyboard-component/Keyboard';
+import Keyboard from '../keyboard-component/keyboard';
 import './results-display.css';
 
-
-const ResultsDisplay = ({ elapsedTime, targetText, text, comparisonResults }) => {
-
-  function clearEverything(){
-    comparisonResults = [];
-  }
-
-
+const ResultsDisplay = ({ elapsedTime, targetText, text, comparisonResults, keysTyped }) => {
   return (
     <div className="results-display fade-in"> {/* Add the fade-in class here */}
-      <h3>Results</h3>
       {comparisonResults && (
         <div>
+          <h3>Results</h3>
           <p>Accuracy: {comparisonResults.accuracy}%</p>
           <p>WPM: {(text.split(" ").length/(elapsedTime / 60)).toFixed(0)}</p>
           <p>Missed words: {comparisonResults.missedWords.join(", ")}</p>
           <p>Error characters: {comparisonResults.errorCharacters.join(", ")}</p>
           <p>Elapsed time: {elapsedTime} seconds</p>
           <h3>Keyboard Heatmap</h3>
-          <Keyboard />
+          <Keyboard 
+          targetText={targetText}
+          text={text}
+          keysTyped={keysTyped}/>
         </div>
       )}
-      <button class="reset" onClick={clearEverything}>Reset</button>
     </div>
   );
 };

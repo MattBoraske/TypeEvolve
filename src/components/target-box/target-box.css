@@ -2,10 +2,9 @@
 
 .text-box {
   border: 2px solid rgba(0, 0, 0, 0.5); /* Semi-transparent black border */
-  padding: 20px; /* Padding inside the box */
+  padding: 200px; /* Padding inside the box */
   margin: 20px auto; /* Centered margin with auto */
   display: inline-block; /* Only as wide as necessary */
-  background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white background */
   font-size: 16px; /* Font size */
   color: #c30707; /* Text color */
   font-family: 'Source Code Pro', monospace; /* Font family */
@@ -19,23 +18,23 @@
 }
 
 .text-box-to-type-to {
-  border: 2px solid rgba(0, 0, 0, 0.5); /* Semi-transparent black border */
+  margin-left: 20px;
   padding: 20px; /* Padding inside the box */
   margin: 20px auto; /* Centered margin with auto */
   display: inline-block; /* Only as wide as necessary */
-  background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white background */
   font-size: 16px; /* Font size */
   color: #333; /* Text color */
   font-family: 'Source Code Pro', monospace; /* Font family */
-  position: absolute; /* Set the first div to relative positioning */
-  top: 50%;
-  left: 50%;
-  z-index: 2;
-  box-sizing: border-box;
-  width: 300px;
-  line-height: 1.5;
 }
 
-.target {
-  position: relative; 
+.matched-char {
+  font-size: 24px; /* Increase the font size */
+
+  color: green; /* or any color you prefer for matched characters */
+}
+
+.unmatched-char {
+  font-size: 24px; /* Increase the font size */
+
+  color: rgb(207, 15, 15); /* or any color you prefer for unmatched characters */
 }

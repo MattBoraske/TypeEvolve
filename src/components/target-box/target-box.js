@@ -2,48 +2,57 @@ import React, { useState, useEffect } from 'react';
 import './target-box.css';
 import ResultsDisplay from '../results-display/results-display';
 
+
 const TextBox = ({ text }) => {
   
-  const targetText = "This is the target text";
+  const targetText = "In the heart of an ancient forest, a gentle stream flowed, whispering secrets of the ages. Leaves rustled as the wind danced through the trees, carrying tales of distant lands. The sun peeked through the canopy, casting a mosaic of light and shadow on the forest floor, creating a serene tapestry of nature's endless beauty."  ;
   const [startTime, setStartTime] = useState(null);
   const [endTime, setEndTime] = useState(null);
   const [timerRunning, setTimerRunning] = useState(false);
-  const [comparisonResults, setComparisonResults] = useState(null); // State to hold comparison results
+  const [comparisonResults, setComparisonResults] = useState(null);
+  const [keysTyped, setKeysTyped] = useState(null);
 
   useEffect(() => {
     if (text.length === 1 && !timerRunning) {
       setStartTime(new Date());
       setTimerRunning(true);
     }
-  console.log(text.split(" ").length);
-  console.log(targetText.split(" ").length);
 
-    if (text.split(" ").length - 1 === targetText.split(" ").length && timerRunning) {
+    if (text.length === targetText.length && timerRunning) {
       setEndTime(new Date());
       setTimerRunning(false);
-      // Call compareInputs here and save the results in state
-      const results = compareInputs(targetText, text);
-      setComparisonResults(results); // Save comparison results to state
+      const results = compareInputs(targetText, text.trim());
+      setComparisonResults(results);
+      setKeysTyped(decompStr(text));
     }
   }, [text, timerRunning, targetText]);
 
   const elapsedTime = endTime ? ((endTime - startTime) / 1000).toFixed(2) : 0;
 
+  const renderStyledText = () => {
+    return targetText.split('').map((char, index) => {
+      const match = text[index] === char;
+      const charStyle = match ? 'matched-char' : 'unmatched-char';
+      return <span key={index} className={charStyle}>{char}</span>;
+    });
+  };
+
   return (
     <>
-      <div className='text-box-to-type-to'>{targetText}</div>
-      <div className="text-box">{text}</div>
+      <div className='text-box-to-type-to'>{renderStyledText()}</div>
       {!timerRunning && endTime && (
         <ResultsDisplay
           elapsedTime={elapsedTime}
           targetText={targetText}
           text={text}
           comparisonResults={comparisonResults}
+          keysTyped={keysTyped}
         />
       )}
     </>
   );
 };
+
 
 export default TextBox;
 
@@ -59,7 +68,7 @@ function compareInputs(promptInput, userInput) {
   let promptMap = {}; // Use 'let' for reassignable variables
   let userMap = {};
 
-  let accuracy = calculateAccuracy(promptInput, userInput);
+  let accuracy = calculateAccuracy(promptInput, userInput.trim());
 
   for (let index = 0; index < promptInputArray.length; index++) {
     if (promptInputArray[index] !== userInputArray[index]) {

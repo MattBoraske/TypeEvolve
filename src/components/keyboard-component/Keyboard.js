@@ -1,15 +1,23 @@
 import React, { useState } from 'react';
-// import './Keyboard.css';
+import './keyboard.css';
+import TextBox from '../target-box/target-box';
 
-const Keyboard = () => {
-
+const Keyboard = ({targetText, text, keysTyped}) => {
   const accuracy = {
-    a: 1, b: 2, c: 3, d: 0, e: 5,
-    f: 1, g: 0, h: 2, i: 3, j: 0,
-    k: 1, l: 4, m: 0, n: 2, o: 3,
-    p: 0, q: 1, r: 2, s: 3, t: 0,
-    u: 1, v: 2, w: 3, x: 0, y: 1, z: 2,
+    a: 0, b: 0, c: 0, d: 0, e: 0,
+    f: 0, g: 0, h: 0, i: 0, j: 0,
+    k: 0, l: 0, m: 0, n: 0, o: 0,
+    p: 0, q: 0, r: 0, s: 0, t: 0,
+    u: 0, v: 0, w: 0, x: 0, y: 0, z: 0,
   };
+
+  //const promptTargetMap = decompStr()
+
+  for (let key in keysTyped) {
+    if (accuracy.hasOwnProperty(key)) {
+      accuracy[key] = keysTyped[key];
+    }
+  }
 
   const [hoveredKey, setHoveredKey] = useState(null);
 
