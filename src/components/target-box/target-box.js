@@ -10,6 +10,7 @@ const TextBox = ({ text }) => {
   const [endTime, setEndTime] = useState(null);
   const [timerRunning, setTimerRunning] = useState(false);
   const [comparisonResults, setComparisonResults] = useState(null);
+  const [keysTyped, setKeysTyped] = useState(null);
 
   useEffect(() => {
     if (text.length === 1 && !timerRunning) {
@@ -22,6 +23,7 @@ const TextBox = ({ text }) => {
       setTimerRunning(false);
       const results = compareInputs(targetText, text.trim());
       setComparisonResults(results);
+      setKeysTyped(decompStr(text));
     }
   }, [text, timerRunning, targetText]);
 
@@ -44,6 +46,7 @@ const TextBox = ({ text }) => {
           targetText={targetText}
           text={text}
           comparisonResults={comparisonResults}
+          keysTyped={keysTyped}
         />
       )}
     </>
