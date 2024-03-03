@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Typings from '../typing-box/Typings';
-import TextBox from '../target-typing-box/Target';
+import TextBox from '../target-typing-box/target';
 
 const ParentComponent = () => {
   // State to hold the input value
@@ -8,9 +8,7 @@ const ParentComponent = () => {
 
   // Function to update the state with the new input value
   const handleInputChange = (newValue) => {
-    if (newValue.length >= inputValue.length) {
-      setInputValue(newValue);
-    }
+    setInputValue(newValue);
   };
 
   return (

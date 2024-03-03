@@ -2,12 +2,11 @@ import React from 'react';
 import Form from 'react-bootstrap/Form';
 import './Typings.css';
 
-const Typings = ({ onInputChange = () => {} }) => { // Provide a default empty function
+const Typings = ({ onInputChange, currentInput }) => {
   const handleChange = (event) => {
-    onInputChange(event.target.value);
+    // Call onInputChange with the new value and the current input value
+    onInputChange(event.target.value, currentInput);
   };
-
-
 
   return (
     <Form className="typingForm">
