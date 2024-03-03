@@ -2,6 +2,37 @@ import React, { useState } from 'react';
 import './keyboard.css';
 import TextBox from '../target-box/target-box';
 
+function decompStr(inputStr) {
+  let size = inputStr != null ? inputStr.length: 0;
+  const charMap = {};
+  for (let index = 0; index < size; index++) {
+    if (charMap[inputStr.charAt(index)]) {
+      charMap[inputStr.charAt(index)]++;
+    } else {
+      charMap[inputStr.charAt(index)] = 1;
+    }
+  }
+  return charMap;
+}
+
+function differMaps(map1, map2) {
+  const differMap = { ...map1};
+  for (let key in map2) {
+    if (differMap.hasOwnProperty(key)) {
+      differMap[key] -= map2[key];
+    } else {
+      differMap[key] = -map2[key];
+    }
+  }
+  return differMap;
+}
+
+function noSpaceStr(inputStr) {
+  let noSpaceStr = inputStr != null ? inputStr.replace(" ",""): null;
+  let size = noSpaceStr != null ? noSpaceStr.length: 0;
+  return size;
+}
+
 const Keyboard = ({targetText, text, keysTyped}) => {
   const accuracy = {
     a: 0, b: 0, c: 0, d: 0, e: 0,
@@ -11,17 +42,48 @@ const Keyboard = ({targetText, text, keysTyped}) => {
     u: 0, v: 0, w: 0, x: 0, y: 0, z: 0,
   };
 
-  //const promptTargetMap = decompStr()
+  const promptTextMap = decompStr(targetText)
+  const userTextMap = decompStr(text)
 
-  for (let key in keysTyped) {
+  const differMap = differMaps(promptTextMap,userTextMap);
+
+  console.log("prompt",promptTextMap);
+  console.log("user",userTextMap)
+
+  for (let key in userTextMap) {
     if (accuracy.hasOwnProperty(key)) {
-      accuracy[key] = keysTyped[key];
+      accuracy[key] = userTextMap[key];
     }
   }
+
+  for (let key in differMap) {
+    if (accuracy.hasOwnProperty(key)) {
+      accuracy[key] = differMap[key];
+    }
+  }
+
+  console.log("accuracy",accuracy);
 
   const [hoveredKey, setHoveredKey] = useState(null);
 
   const getKeyColor = (value) => {
+
+    let red, green, alpha;
+    if (value < 0) {
+      red = 255 - (255/(Math.abs(value)));
+      green = 0;
+      alpha = 1;
+    } else if (value > 0) {
+      green = 255 - (255/(Math.abs(value)));
+      red = 0;
+      alpha = 1;
+    } else {
+      red = 0;
+      green = 0;
+      alpha = 0;
+    }
+
+    /*
     const maxErrorValue = 5;
     const halfMaxError = maxErrorValue / 2;
     const intensity = Math.min(value / maxErrorValue, 1);
@@ -36,6 +98,8 @@ const Keyboard = ({targetText, text, keysTyped}) => {
       green = 0;
       alpha = (intensity - 0.5) * 1;
     }
+    */
+  
 
     return `rgba(${red}, ${green}, 0, ${alpha})`;
   };
