@@ -12,9 +12,12 @@ const Typings = ({ onInputChange }) => {
   };
 
   const handleKeyDown = (event) => {
-    if (event.key !== 'Backspace') {
+    if (event.key !== 'Backspace' && event.key !== "Enter") {
       const newGrowingString = growingString + event.key;
       setGrowingString(newGrowingString);
+    }
+    else{
+      event.preventDefault()
     }
   };
 
@@ -25,6 +28,7 @@ const Typings = ({ onInputChange }) => {
           type="text"
           onChange={handleChange}
           onKeyDown={handleKeyDown} // Capture key down events
+          placeholder='Your prompt:'
         />
       </Form.Group>
     </Form>

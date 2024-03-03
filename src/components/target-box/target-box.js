@@ -38,6 +38,7 @@ const TextBox = ({ text, targetText}) => {
     });
   };
 
+
   return (
     <>
           <div className="elementBelowTextBox">        
