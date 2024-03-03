@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Keyboard.css';
+import './keyboard.css';
 import TextBox from '../target-box/target-box';
 
 function decompStr(inputStr) {
@@ -137,7 +137,7 @@ const Keyboard = ({targetText, text, keysTyped}) => {
         </div>
       ))}
     </div>
-  );
+  ); 
 };
 
 export default Keyboard;
