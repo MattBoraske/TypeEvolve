@@ -2,7 +2,7 @@ import React from 'react';
 import Keyboard from '../keyboard-component/keyboard';
 import './results-display.css';
 
-const ResultsDisplay = ({ elapsedTime, targetText, text, comparisonResults }) => {
+const ResultsDisplay = ({ elapsedTime, targetText, text, comparisonResults, keysTyped }) => {
   return (
     <div className="results-display fade-in"> {/* Add the fade-in class here */}
       <h3>Results</h3>
@@ -14,7 +14,8 @@ const ResultsDisplay = ({ elapsedTime, targetText, text, comparisonResults }) =>
           <p>Error characters: {comparisonResults.errorCharacters.join(", ")}</p>
           <p>Elapsed time: {elapsedTime} seconds</p>
           <h3>Keyboard Heatmap</h3>
-          <Keyboard />
+          <Keyboard 
+          keysTyped={keysTyped}/>
         </div>
       )}
     </div>
