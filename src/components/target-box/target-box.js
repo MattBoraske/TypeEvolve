@@ -93,6 +93,15 @@ function compareInputs(promptInput, userInput) {
 
       promptMap = combineMaps(promptMap, decompStr(promptInputArray[index]));
       userMap = combineMaps(userMap, decompStr(userInputArray[index]));
+    
+      while (promptInputArray[index] !== userInputArray[index + combinedWord]) {
+        if (combinedWord + 1 < userInputArray.length) {
+          combinedWord++;
+        }
+        if (index >= promptInputArray.length || index + combinedWord >= userInputArray.length) {
+          break;
+        }
+      }
     }
   }
 
