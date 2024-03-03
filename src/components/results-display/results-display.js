@@ -1,8 +1,15 @@
 import React from 'react';
-import Keyboard from '../keyboard-component/keyboard';
+import Keyboard from '../keyboard-component/Keyboard';
 import './results-display.css';
 
 const ResultsDisplay = ({ elapsedTime, targetText, text, comparisonResults, keysTyped }) => {
+
+  //Simply clears the stats of the screen
+  function clearDisplay(e){
+    e.preventDefault();
+    comparisonResults = null;
+  }
+
   return (
     <div className="results-display fade-in"> {/* Add the fade-in class here */}
       {comparisonResults && (
@@ -20,6 +27,7 @@ const ResultsDisplay = ({ elapsedTime, targetText, text, comparisonResults, keys
           keysTyped={keysTyped}/>
         </div>
       )}
+      <button className='reset' onClick={clearDisplay}>Reset</button>
     </div>
   );
 };
