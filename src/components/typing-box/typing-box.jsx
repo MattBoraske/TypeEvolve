@@ -15,8 +15,6 @@ const Typings = ({ onInputChange }) => {
     if (event.key !== 'Backspace') {
       const newGrowingString = growingString + event.key;
       setGrowingString(newGrowingString);
-      console.log(newGrowingString); 
-      console.log(compareInputs("henhacks winners r us", newGrowingString));
     }
   };
 

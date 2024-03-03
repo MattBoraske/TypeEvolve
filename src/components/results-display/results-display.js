@@ -8,14 +8,12 @@ import axios from 'axios';
 const difficultyLevels = ['very simple', 'simple', 'average', 'complex', 'very complex'];
 
 const ResultsDisplay = ({ elapsedTime, targetText, text, comparisonResults, keysTyped, setTargetText}) => {
-  console.log('comparisonResults beginning of results display', comparisonResults);
+  //console.log('comparisonResults beginning of results display', comparisonResults);
   const [realComparisonResults, setRealComparisonResults] = useState(comparisonResults);
 
   const clearDisplay = (e) => {
     e.preventDefault();
-    console.log('comparison results before nulling of real', comparisonResults);
     setRealComparisonResults(null);
-    console.log('comparison results after nulling of real', comparisonResults);
     // call createStory with the words and letters from the comparisonResults
     let words = comparisonResults.missedWords;
     let letters = comparisonResults.errorCharacters;
