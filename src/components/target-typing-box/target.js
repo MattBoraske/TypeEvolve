@@ -2,54 +2,48 @@ import React, { useState, useEffect } from 'react';
 import './target.css';
 
 const TextBox = ({ text, backendtext }) => {
-  ////////////////////////////////////////////////////////////////
-  // The target text to type goes here:
-  /////////////////////////////////////////////////////////////////
-  const targetText = "This is the target text"; 
-
-  ////////////////////////////////////////////////////////////////
-  // Set variables:
-  /////////////////////////////////////////////////////////////////
+  const targetText = "This is the target text";
   const [startTime, setStartTime] = useState(null);
   const [endTime, setEndTime] = useState(null);
   const [timerRunning, setTimerRunning] = useState(false);
+  const [comparisonResults, setComparisonResults] = useState(null); // State to hold comparison results
 
-  ////////////////////////////////////////////////////////////////
-  // Timer starts when textbox length is 1
-  /////////////////////////////////////////////////////////////////
   useEffect(() => {
     if (text.length === 1 && !timerRunning) {
       setStartTime(new Date());
       setTimerRunning(true);
     }
 
-  ////////////////////////////////////////////////////////////////
-  // Stop timer when text matches target text
-  /////////////////////////////////////////////////////////////////
     if (text.length === targetText.length && timerRunning) {
       setEndTime(new Date());
       setTimerRunning(false);
+      // Call compareInputs here and save the results in state
+      const results = compareInputs(targetText, text);
+      setComparisonResults(results); // Save comparison results to state
     }
-  }, [text, timerRunning, targetText]); // Dependencies for useEffect
+  }, [text, timerRunning, targetText]);
 
-  ////////////////////////////////////////////////////////////////
-  // Get timer diff:
-  /////////////////////////////////////////////////////////////////
   const elapsedTime = endTime ? ((endTime - startTime) / 1000).toFixed(2) : 0;
 
   return (
     <>
-      <div className='text-box-to-type-to'>
-        {targetText}
-      </div>
-      <div className="text-box">
-        {text}
-      </div>
-      {/* Optionally display the timer or completion message */}
-     {!timerRunning && endTime && (
-        <div>Time taken: {elapsedTime} seconds
-        Target: {targetText}
-        Actual:  {text}
+      <div className='text-box-to-type-to'>{targetText}</div>
+      <div className="text-box">{text}</div>
+      {!timerRunning && endTime && (
+        <div>
+          Time taken: {elapsedTime} seconds
+          Target: {targetText}
+          Actual: {text}
+          {/* Display comparison results */}
+          {comparisonResults && (
+            <div>
+              Accuracy: {comparisonResults.accuracy}%
+              Missed words: {comparisonResults.missedWords.join(", ")}
+              Error characters: {comparisonResults.errorCharacters.join(", ")}
+              
+              {/* Render missed words and error characters as needed */}
+            </div>
+          )}
         </div>
       )}
     </>
@@ -58,28 +52,33 @@ const TextBox = ({ text, backendtext }) => {
 
 export default TextBox;
 
+// Ensure compareInputs function is defined or imported here
+
 
 // Returns accuracy, missed words, and error characters
 function compareInputs(promptInput, userInput) {
   const promptInputArray = promptInput.split(" ");
   const userInputArray = userInput.split(" ");
-  const missedWords = {};
-  const errorCharacters = {};
-  const promptMap = {};
-  const userMap = {};
+  let missedWords = []; // Initialize as an array if you plan to push into it
+  let errorCharacters = []; // Should be an array based on your usage
+  let promptMap = {}; // Use 'let' for reassignable variables
+  let userMap = {};
+
   let accuracy = calculateAccuracy(promptInput, userInput);
 
   for (let index = 0; index < promptInputArray.length; index++) {
     if (promptInputArray[index] !== userInputArray[index]) {
-      missedWords.push(userInputArray[index]);
+      missedWords.push(userInputArray[index]); // Assuming missedWords is intended to be an array
 
-      promptMap = combineMaps(promptMap, decompStr(promptInputArray[index]))
-      userMap = combineMaps(userMap, decompStr(userInputArray[index]))
+      promptMap = combineMaps(promptMap, decompStr(promptInputArray[index]));
+      userMap = combineMaps(userMap, decompStr(userInputArray[index]));
     }
   }
-  errorCharacters = getErrorCharacters(differMaps(promptMap,userMap));
-  return {accuracy, missedWords, errorCharacters};
+
+  errorCharacters = getErrorCharacters(differMaps(promptMap, userMap));
+  return { accuracy, missedWords, errorCharacters };
 }
+
 
 // Adds elements from one map to another
 function combineMaps(map1, map2) {
@@ -150,7 +149,7 @@ function calculateAccuracy(str1, str2) {
   const longerLength = Math.max(str1.length, str2.length);
   const distance = levenshteinDistance(str1, str2);
   const accuracy = ((longerLength - distance) / longerLength) * 100;
-  return accuracy.toFixed.toFixed(2);
+  return accuracy.toFixed(2);
 }
 
 // Calculates the distance using levenshtein algorithm

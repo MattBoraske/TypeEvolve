@@ -6,6 +6,7 @@ const Typings = ({ onInputChange, currentInput }) => {
   const handleChange = (event) => {
     // Call onInputChange with the new value and the current input value
     onInputChange(event.target.value, currentInput);
+
   };
 
   return (
