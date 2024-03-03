@@ -15,7 +15,7 @@ const ResetButton = ({ onReset }) => {
 
   return (
     <button
-      className='reset'
+      className='reset-button'
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseUp} // Resets the style if the cursor leaves the button while pressed

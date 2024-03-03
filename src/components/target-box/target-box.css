@@ -2,7 +2,7 @@
 
 .text-box {
   border: 2px solid rgba(0, 0, 0, 0.5); /* Semi-transparent black border */
-  padding: 200px; /* Padding inside the box */
+  padding: 00px; /* Padding inside the box */
   margin: 20px auto; /* Centered margin with auto */
   display: inline-block; /* Only as wide as necessary */
   font-size: 16px; /* Font size */
@@ -26,7 +26,9 @@
   color: #333; /* Text color */
   font-family: 'Source Code Pro', monospace; /* Font family */
   padding-bottom: 2em;
-  padding-top: 3em;
+  padding-top: 2em;
+  padding-left: 10em;
+  padding-right: 10em;
 }
 
 .matched-char {
