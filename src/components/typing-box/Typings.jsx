@@ -10,7 +10,7 @@ const Typings = ({ onInputChange = () => {} }) => { // Provide a default empty f
   return (
     <Form className="typingForm">
       <Form.Group controlId="formBasicEmail">
-        <Form.Control type="text" placeholder="" onChange={handleChange} />
+        <Form.Control type="text" placeholder="" onChange={handleChange} style={{ whiteSpace: "pre-wrap", width: "100%", height: "200px" }}/>
       </Form.Group>
     </Form>
   );

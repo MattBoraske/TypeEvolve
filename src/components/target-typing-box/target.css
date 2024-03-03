@@ -9,6 +9,13 @@
   font-size: 16px; /* Font size */
   color: #c30707; /* Text color */
   font-family: 'Source Code Pro', monospace; /* Font family */
+  position: absolute; /* Set the second div to absolute positioning */
+  top: 50%; /* Align the second div to the top of the parent container */
+  left: 50%; /* Align the second div to the left of the parent container */
+  z-index: 1; /* Ensure the second div is on top of the first div */
+  box-sizing: border-box;
+  width: 300px;
+  line-height: 1.5;
 }
 
 .text-box-to-type-to {
@@ -20,4 +27,15 @@
   font-size: 16px; /* Font size */
   color: #333; /* Text color */
   font-family: 'Source Code Pro', monospace; /* Font family */
+  position: absolute; /* Set the first div to relative positioning */
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  box-sizing: border-box;
+  width: 300px;
+  line-height: 1.5;
+}
+
+.target {
+  position: relative; 
 }
