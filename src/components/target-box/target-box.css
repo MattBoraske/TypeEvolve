@@ -21,3 +21,11 @@
   color: #333; /* Text color */
   font-family: 'Source Code Pro', monospace; /* Font family */
 }
+
+.matched-char {
+  color: green; /* or any color you prefer for matched characters */
+}
+
+.unmatched-char {
+  color: rgb(207, 15, 15); /* or any color you prefer for unmatched characters */
+}

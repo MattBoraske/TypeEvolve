@@ -5,9 +5,9 @@ import './results-display.css';
 const ResultsDisplay = ({ elapsedTime, targetText, text, comparisonResults }) => {
   return (
     <div className="results-display fade-in"> {/* Add the fade-in class here */}
-      <h3>Results</h3>
       {comparisonResults && (
         <div>
+          <h3>Results</h3>
           <p>Accuracy: {comparisonResults.accuracy}%</p>
           <p>WPM: {(text.split(" ").length/(elapsedTime / 60)).toFixed(0)}</p>
           <p>Missed words: {comparisonResults.missedWords.join(", ")}</p>
