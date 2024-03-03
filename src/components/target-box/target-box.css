@@ -86,3 +86,8 @@
 .typingForm .form-control::placeholder {
   color: #a9b3c1; /* Sets a lighter color for the placeholder text */
 }
+
+.accordion-header {
+  text-align: center !important;
+  display: flex;
+}

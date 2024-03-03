@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import './target-box.css'; // Make sure the CSS path is correct
-import ResultsDisplay from '../results-display/results-display'; // Ensure this component is correctly imported
+import { Accordion, Card } from 'react-bootstrap';
+import ResultsDisplay from '../results-display/results-display';
+import './target-box.css';
+import 'bootstrap/dist/css/bootstrap.min.css'; // Ensure Bootstrap CSS is imported
 
 const TextBox = ({ text, targetText }) => {
   const [startTime, setStartTime] = useState(null);
@@ -20,7 +22,7 @@ const TextBox = ({ text, targetText }) => {
       const results = compareInputs(targetText['targetText'], text);
       setComparisonResults(results);
     }
-  }, [text, timerRunning, targetText]);
+  }, [text, timerRunning, targetText, comparisonResults]);
 
   const elapsedTime = endTime ? ((endTime - startTime) / 1000).toFixed(2) : 0;
 
@@ -47,6 +49,7 @@ const TextBox = ({ text, targetText }) => {
         {renderStyledText()}
         {text.length === targetText['targetText'].length && <span className="cursor">|</span>} {/* Show cursor at the end if all characters are typed */}
       </div>
+
       {!timerRunning && endTime && (
         <ResultsDisplay
           elapsedTime={elapsedTime}
