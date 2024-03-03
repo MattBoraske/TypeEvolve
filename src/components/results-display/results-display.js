@@ -17,10 +17,12 @@ const ResultsDisplay = ({ elapsedTime, targetText, text, comparisonResults, keys
     // call createStory with the words and letters from the comparisonResults
     let words = comparisonResults.missedWords;
     let letters = comparisonResults.errorCharacters;
-    let difficulty = difficultyLevels[determineDifficulty(comparisonResults.accuracy)];
+    let accuracy = comparisonResults.accuracy;
+    let difficulty = difficultyLevels[determineDifficulty(accuracy)];
     
     console.log('words', words);
     console.log('letters', letters);
+    console.log('accuracy', accuracy)
     console.log('difficulty', difficulty);
 
     createStory(words, letters, difficulty).then((story) => {
