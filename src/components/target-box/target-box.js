@@ -8,7 +8,7 @@ const TextBox = ({ text }) => {
   const [startTime, setStartTime] = useState(null);
   const [endTime, setEndTime] = useState(null);
   const [timerRunning, setTimerRunning] = useState(false);
-  const [comparisonResults, setComparisonResults] = useState(null); // State to hold comparison results
+  const [comparisonResults, setComparisonResults] = useState(null);
   const [keysTyped, setKeysTyped] = useState(null);
 
   useEffect(() => {
@@ -16,25 +16,29 @@ const TextBox = ({ text }) => {
       setStartTime(new Date());
       setTimerRunning(true);
     }
-  console.log(text.split(" ").length);
-  console.log(targetText.split(" ").length);
 
     if (text.length === targetText.length && timerRunning) {
       setEndTime(new Date());
       setTimerRunning(false);
-      // Call compareInputs here and save the results in state
       const results = compareInputs(targetText, text.trim());
-      setComparisonResults(results); // Save comparison results to state
+      setComparisonResults(results);
       setKeysTyped(decompStr(text));
     }
   }, [text, timerRunning, targetText]);
 
   const elapsedTime = endTime ? ((endTime - startTime) / 1000).toFixed(2) : 0;
 
+  const renderStyledText = () => {
+    return targetText.split('').map((char, index) => {
+      const match = text[index] === char;
+      const charStyle = match ? 'matched-char' : 'unmatched-char';
+      return <span key={index} className={charStyle}>{char}</span>;
+    });
+  };
+
   return (
     <>
-      <div className='text-box-to-type-to'>{targetText}</div>
-      <div className="text-box">{text}</div>
+      <div className='text-box-to-type-to'>{renderStyledText()}</div>
       {!timerRunning && endTime && (
         <ResultsDisplay
           elapsedTime={elapsedTime}
@@ -47,6 +51,7 @@ const TextBox = ({ text }) => {
     </>
   );
 };
+
 
 export default TextBox;
 
