@@ -28,7 +28,7 @@ const Typings = ({ onInputChange }) => {
           type="text"
           onChange={handleChange}
           onKeyDown={handleKeyDown} // Capture key down events
-          placeholder='Your prompt:'
+          placeholder='Type Here:'
         />
       </Form.Group>
     </Form>
