@@ -40,9 +40,6 @@ const TextBox = ({ text, targetText }) => {
 
   return (
     <>
-      <div className="elementBelowTextBox">        
-        Your prompt:
-      </div>
       <div className='text-box-to-type-to'>
         {renderStyledText()}
         {text.length === targetText['targetText'].length && <span className="cursor">|</span>} {/* Show cursor at the end if all characters are typed */}
