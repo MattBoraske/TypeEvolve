@@ -22,7 +22,7 @@ const TextBox = ({ text }) => {
       setEndTime(new Date());
       setTimerRunning(false);
       // Call compareInputs here and save the results in state
-      const results = compareInputs(targetText, text);
+      const results = compareInputs(targetText, text.trim());
       setComparisonResults(results); // Save comparison results to state
     }
   }, [text, timerRunning, targetText]);
@@ -59,7 +59,7 @@ function compareInputs(promptInput, userInput) {
   let promptMap = {}; // Use 'let' for reassignable variables
   let userMap = {};
 
-  let accuracy = calculateAccuracy(promptInput, userInput);
+  let accuracy = calculateAccuracy(promptInput, userInput.trim());
 
   for (let index = 0; index < promptInputArray.length; index++) {
     if (promptInputArray[index] !== userInputArray[index]) {
