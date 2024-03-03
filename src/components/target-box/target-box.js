@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './target-box.css';
+import ResultsDisplay from '../results-display/results-display';
 
-const TextBox = ({ text, backendtext }) => {
+const TextBox = ({ text }) => {
+  
   const targetText = "This is the target text";
   const [startTime, setStartTime] = useState(null);
   const [endTime, setEndTime] = useState(null);
@@ -30,22 +32,12 @@ const TextBox = ({ text, backendtext }) => {
       <div className='text-box-to-type-to'>{targetText}</div>
       <div className="text-box">{text}</div>
       {!timerRunning && endTime && (
-        <div>
-          Time taken: {elapsedTime} seconds <br></br>
-          Target: {targetText} <br></br>
-          Actual: {text} <br></br>
-          {/* Display comparison results */}
-          {comparisonResults && (
-            <div>
-              <br></br>
-              Accuracy: {comparisonResults.accuracy}% <br></br>
-              Missed words: {comparisonResults.missedWords.join(", ")} <br></br>
-              Error characters: {comparisonResults.errorCharacters.join(", ")}
-              
-              {/* Render missed words and error characters as needed */}
-            </div>
-          )}
-        </div>
+        <ResultsDisplay
+          elapsedTime={elapsedTime}
+          targetText={targetText}
+          text={text}
+          comparisonResults={comparisonResults}
+        />
       )}
     </>
   );
