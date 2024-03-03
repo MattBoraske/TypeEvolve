@@ -2,7 +2,7 @@
 
 .text-box {
   border: 2px solid rgba(0, 0, 0, 0.5); /* Semi-transparent black border */
-  padding: 200px; /* Padding inside the box */
+  padding: 00px; /* Padding inside the box */
   margin: 20px auto; /* Centered margin with auto */
   display: inline-block; /* Only as wide as necessary */
   font-size: 16px; /* Font size */
@@ -26,7 +26,9 @@
   color: #333; /* Text color */
   font-family: 'Source Code Pro', monospace; /* Font family */
   padding-bottom: 2em;
-  padding-top: 3em;
+  padding-top: 2em;
+  padding-left: 10em;
+  padding-right: 10em;
 }
 
 .matched-char {
@@ -51,10 +53,20 @@
   position: absolute;
 
 }
+.stats-container .results-heading {
+  font-size: 50px; /* Increase the font size */
+  font-weight: bold; /* Make the font weight bold */
+  margin-bottom: 16px; /* Add some space below the heading */
+  text-decoration: underline; /* Underline the heading */
+}
+
 
 .text-box-container {
   position: relative; /* Container for text and cursor */
   /* Set other properties like height, width, etc., as needed */
+}
+.stats-container strong {
+  color: yellow; /* Change color to yellow */
 }
 
 

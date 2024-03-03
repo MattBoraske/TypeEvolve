@@ -3,7 +3,7 @@ import React from 'react';
 const StatsDisplay = ({ realComparisonResults, text, elapsedTime }) => {
   return (
     <div className="stats-container">
-      <h3>Results</h3>
+      <h3 className="results-heading">Results</h3> {/* Added a class name to the heading */}
       <div className="stats-row">
         <div className="stats-column">
           <p><strong>Accuracy:</strong> {realComparisonResults.accuracy}%</p>
