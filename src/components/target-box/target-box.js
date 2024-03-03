@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import './target-box.css';
+import { Accordion, Card } from 'react-bootstrap';
 import ResultsDisplay from '../results-display/results-display';
+import './target-box.css';
+import 'bootstrap/dist/css/bootstrap.min.css'; // Ensure Bootstrap CSS is imported
 
-const TextBox = ({ text, targetText}) => {
-  
+const TextBox = ({ text, targetText }) => {
   const [startTime, setStartTime] = useState(null);
   const [endTime, setEndTime] = useState(null);
   const [timerRunning, setTimerRunning] = useState(false);
@@ -19,45 +20,48 @@ const TextBox = ({ text, targetText}) => {
       setEndTime(new Date());
       setTimerRunning(false);
       const results = compareInputs(targetText['targetText'], text);
-      console.log("text", decompStr(text))
-      console.log("targetText", decompStr(targetText['targetText']));
-      console.log("error characters", results.errorCharacters);
-      console.log('comparison results', comparisonResults)
       setComparisonResults(results);
-      console.log('comparison results after setting', comparisonResults)
     }
-  }, [text, timerRunning, targetText]);
+  }, [text, timerRunning, targetText, comparisonResults]);
 
   const elapsedTime = endTime ? ((endTime - startTime) / 1000).toFixed(2) : 0;
 
   const renderStyledText = () => {
-    return targetText['targetText'].split('').map((char, index) => {
+    const chars = targetText['targetText'].split('');
+    return chars.map((char, index) => {
       const match = text[index] === char;
       const charStyle = match ? 'matched-char' : 'unmatched-char';
-      return <span key={index} className={charStyle}>{char}</span>;
+      return (
+        <React.Fragment key={index-1}>
+          <span className={charStyle}>{char}</span>
+          {index+1 === text.length && <span className="cursor">|</span>}
+        </React.Fragment>
+      );
     });
   };
 
-
   return (
     <>
-          <div className="elementBelowTextBox">        
+      <div className="elementBelowTextBox">        
         Your prompt:
       </div>
-      <div className='text-box-to-type-to'>{renderStyledText()}</div>
+      <div className='text-box-to-type-to'>
+        {renderStyledText()}
+        {text.length === targetText['targetText'].length && <span className="cursor">|</span>} {/* Show cursor at the end if all characters are typed */}
+      </div>
+
       {!timerRunning && endTime && (
         <ResultsDisplay
           elapsedTime={elapsedTime}
           targetText={targetText['targetText']}
           text={text}           
           comparisonResults={comparisonResults}
-          setTargetText={targetText['setTargetText']}
+          setTargetText={targetText['setTargetText']} // Make sure this prop is correctly passed down and used in the ResultsDisplay component
         />
       )}
     </>
   );
 };
-
 
 export default TextBox;
 
@@ -135,19 +139,6 @@ function getErrorCharacters(map1) {
   return errorCharacters;
 }
 
-// Get matches of characters side by side (NOT NEEDED)
-function compCountStr(str1,str2) {
-  let maxlength = Math.max(str1.length,str2.length);
-  let matchCount = 0;
-  for (let index = 0; index < maxlength; index++) {
-      if(index < str1.length && index < str2.length) {
-          if (str1.charAt(index) === str2.charAt(index)) {
-              matchCount++;
-          }
-      }
-  }
-  return matchCount;
-} 
 
 // Breaks down a string into the characters and their occurences.
 function decompStr(inputStr) {

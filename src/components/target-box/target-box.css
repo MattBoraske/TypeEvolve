@@ -39,6 +39,30 @@
   color: gray
 }
 
+.cursor {
+  display: inline-block;
+  margin-top: 6px; /* Move cursor to the left by reducing margin */
+  height: 20px;
+  width: 4px;
+  background-color: rgb(255, 255, 255);
+  animation: blink .5s step-start infinite;
+  position: absolute;
+
+}
+
+.text-box-container {
+  position: relative; /* Container for text and cursor */
+  /* Set other properties like height, width, etc., as needed */
+}
+
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+
 .unmatched-char {
   font-size: 24px; /* Increase the font size */
 
@@ -61,4 +85,9 @@
 
 .typingForm .form-control::placeholder {
   color: #a9b3c1; /* Sets a lighter color for the placeholder text */
+}
+
+.accordion-header {
+  text-align: center !important;
+  display: flex;
 }
