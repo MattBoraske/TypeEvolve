@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import ParentComponent from './components/parent-component/parent-component';// Adjust the import path as necessary
+import ParentComponent from './components/textbox-typingbox-parent/textbox-typingbox-parent';
 
 function App() {
   return (
