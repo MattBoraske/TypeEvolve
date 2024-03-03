@@ -43,7 +43,7 @@ export default Typings;
 
 
 // Returns accuracy, missed words, and error characters
-function compareInputs(promptInput, userInput) {
+export const compareInputs = (promptInput, userInput) => {
   const promptInputArray = promptInput.split(" ");
   const userInputArray = userInput.split(" ");
   let missedWords = []; // Initialize as an array if you plan to push into it
