@@ -57,7 +57,9 @@ const TextBox = ({ text }) => {
 export default TextBox;
 
 // Ensure compareInputs function is defined or imported here
-
+//////////////////////////////////////////////////////////
+// FUNCTION
+//////////////////////////////////////////////////////////
 
 // Returns accuracy, missed words, and error characters
 function compareInputs(promptInput, userInput) {

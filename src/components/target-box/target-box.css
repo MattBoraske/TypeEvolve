@@ -31,3 +31,21 @@
 
   color: rgb(207, 15, 15); /* or any color you prefer for unmatched characters */
 }
+
+.typingForm .form-control {
+  background-color: transparent; /* Makes the input field background transparent */
+  border: none; /* Removes the border from the input field */
+  color: #fff; /* Changes the text color to white or any color that suits your design */
+}
+
+.typingForm .form-control {
+  border: none; /* Removes the border around the text input */
+  background-color: transparent; /* Makes the background transparent or matches the container */
+  color: #a9b3c1; /* Sets the text color to match the design */
+  padding: 0; /* Adjusts padding to align text properly */
+  margin: 0; /* Adjusts margin to align text properly */
+}
+
+.typingForm .form-control::placeholder {
+  color: #a9b3c1; /* Sets a lighter color for the placeholder text */
+}
