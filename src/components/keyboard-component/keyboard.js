@@ -48,17 +48,20 @@ const Keyboard = ({targetText, text, keysTyped}) => {
   const differMap = differMaps(promptTextMap,userTextMap);
 
   console.log("prompt",promptTextMap);
-  console.log("user",userTextMap)
+  console.log("user",userTextMap);
+  console.log("accuracy",accuracy);
 
   for (let key in userTextMap) {
     if (accuracy.hasOwnProperty(key)) {
       accuracy[key] = userTextMap[key];
+      console.log("added text key,value", key, userTextMap[key])
     }
   }
 
   for (let key in differMap) {
     if (accuracy.hasOwnProperty(key)) {
       accuracy[key] = differMap[key];
+      console.log("added error key,value", key, differMap[key])
     }
   }
 
@@ -70,11 +73,11 @@ const Keyboard = ({targetText, text, keysTyped}) => {
 
     let red, green, alpha;
     if (value < 0) {
-      red = 255 - (255/(Math.abs(value)));
+      red = (255 * (((100-Math.abs(value))/100)));
       green = 0;
       alpha = 1;
     } else if (value > 0) {
-      green = 255 - (255/(Math.abs(value)));
+      green = (255 * (((100-Math.abs(value))/100)));
       red = 0;
       alpha = 1;
     } else {
