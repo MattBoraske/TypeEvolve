@@ -34,23 +34,12 @@ const TextBox = ({ text }) => {
       <div className='text-box-to-type-to'>{targetText}</div>
       <div className="text-box">{text}</div>
       {!timerRunning && endTime && (
-        <div>
-          Time taken: {elapsedTime} seconds <br></br>
-          Target: {targetText} <br></br>
-          Actual: {text} <br></br>
-          {/* Display comparison results */}
-          {comparisonResults && (
-            <div>
-              <br></br>
-              Accuracy: {comparisonResults.accuracy}% <br></br>
-              WPM: {(text.split(" ").length/(elapsedTime*(1/60))).toFixed(0)} <br></br>
-              Missed words: {comparisonResults.missedWords.join(", ")} <br></br>
-              Error characters: {comparisonResults.errorCharacters.join(", ")}
-              
-              {/* Render missed words and error characters as needed */}
-            </div>
-          )}
-        </div>
+        <ResultsDisplay
+          elapsedTime={elapsedTime}
+          targetText={targetText}
+          text={text}
+          comparisonResults={comparisonResults}
+        />
       )}
     </>
   );
