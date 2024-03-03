@@ -20,7 +20,10 @@ const TextBox = ({ text }) => {
     if (text.length === targetText.length && timerRunning) {
       setEndTime(new Date());
       setTimerRunning(false);
-      const results = compareInputs(targetText, text.trim());
+      const results = compareInputs(targetText, text);
+      console.log("text", decompStr(text))
+      console.log("targetText", decompStr(targetText));
+      console.log("error characters", results.errorCharacters);
       setComparisonResults(results);
     }
   }, [text, timerRunning, targetText]);
@@ -65,7 +68,7 @@ function compareInputs(promptInput, userInput) {
   let promptMap = {}; // Use 'let' for reassignable variables
   let userMap = {};
 
-  let accuracy = calculateAccuracy(promptInput, userInput.trim());
+  let accuracy = calculateAccuracy(promptInput, userInput);
 
   for (let index = 0; index < promptInputArray.length; index++) {
     if (promptInputArray[index] !== userInputArray[index]) {
@@ -76,6 +79,7 @@ function compareInputs(promptInput, userInput) {
     }
   }
 
+  console.log("differences", differMaps(promptMap,userMap));
   errorCharacters = getErrorCharacters(differMaps(promptMap, userMap));
   return { accuracy, missedWords, errorCharacters };
 }
@@ -83,7 +87,7 @@ function compareInputs(promptInput, userInput) {
 
 // Adds elements from one map to another
 function combineMaps(map1, map2) {
-  const combinedMap = {map1};
+  const combinedMap = { ...map1};
   for (let key in map2) {
     if (combinedMap.hasOwnProperty(key)) {
       combinedMap[key] += map2[key];
@@ -111,7 +115,7 @@ return differMap;
 function getErrorCharacters(map1) {
   const errorCharacters = [];
   for (let key in map1) {
-    if (map1[key] > 0) {
+    if (map1[key] < 0) {
       errorCharacters.push(key);
     }
   }
