@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './keyboard.css';
 
 const Keyboard = () => {
+
   const accuracy = {
     a: 1, b: 2, c: 3, d: 0, e: 5,
     f: 1, g: 0, h: 2, i: 3, j: 0,
