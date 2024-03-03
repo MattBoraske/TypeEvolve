@@ -40,6 +40,9 @@ const TextBox = ({ text, APIKEY }) => {
 
   return (
     <>
+          <div className="elementBelowTextBox">        
+        Your prompt:
+      </div>
       <div className='text-box-to-type-to'>{renderStyledText()}</div>
       {!timerRunning && endTime && (
         <ResultsDisplay

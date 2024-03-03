@@ -32,6 +32,12 @@
 
   color: green; /* or any color you prefer for matched characters */
 }
+.elementBelowTextBox {
+  padding: 5px; /* Add some padding inside the box */
+  margin-top: 20px; /* Add some space between the text box and this element */
+  text-align: center; /* Center the text inside the element */
+  color: gray
+}
 
 .unmatched-char {
   font-size: 24px; /* Increase the font size */
