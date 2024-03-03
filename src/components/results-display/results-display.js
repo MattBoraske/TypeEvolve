@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import Keyboard from '../keyboard-component/Keyboard';
 import './results-display.css';
 
+
 const ResultsDisplay = ({ elapsedTime, targetText, text, comparisonResults, keysTyped }) => {
 
   const [realComparisonResults, setRealComparisonResults] = useState(comparisonResults);
@@ -13,6 +14,7 @@ const ResultsDisplay = ({ elapsedTime, targetText, text, comparisonResults, keys
     setRealComparisonResults(null);
   }
 
+const ResultsDisplay = ({ elapsedTime, targetText, text, comparisonResults}) => {
   return (
     <div className="results-display fade-in"> {/* Add the fade-in class here */}
       {realComparisonResults && (

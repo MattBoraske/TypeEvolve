@@ -5,12 +5,11 @@ import ResultsDisplay from '../results-display/results-display';
 
 const TextBox = ({ text }) => {
   
-  const targetText = "In the heart of an ancient forest, a gentle stream flowed, whispering secrets of the ages. Leaves rustled as the wind danced through the trees, carrying tales of distant lands. The sun peeked through the canopy, casting a mosaic of light and shadow on the forest floor, creating a serene tapestry of nature's endless beauty."  ;
+  const targetText = "henhacks winners r us"  ;
   const [startTime, setStartTime] = useState(null);
   const [endTime, setEndTime] = useState(null);
   const [timerRunning, setTimerRunning] = useState(false);
   const [comparisonResults, setComparisonResults] = useState(null);
-  const [keysTyped, setKeysTyped] = useState(null);
 
   useEffect(() => {
     if (text.length === 1 && !timerRunning) {
@@ -21,9 +20,11 @@ const TextBox = ({ text }) => {
     if (text.length === targetText.length && timerRunning) {
       setEndTime(new Date());
       setTimerRunning(false);
-      const results = compareInputs(targetText, text.trim());
+      const results = compareInputs(targetText, text);
+      console.log("text", decompStr(text))
+      console.log("targetText", decompStr(targetText));
+      console.log("error characters", results.errorCharacters);
       setComparisonResults(results);
-      setKeysTyped(decompStr(text));
     }
   }, [text, timerRunning, targetText]);
 
@@ -46,7 +47,6 @@ const TextBox = ({ text }) => {
           targetText={targetText}
           text={text}
           comparisonResults={comparisonResults}
-          keysTyped={keysTyped}
         />
       )}
     </>
@@ -57,7 +57,9 @@ const TextBox = ({ text }) => {
 export default TextBox;
 
 // Ensure compareInputs function is defined or imported here
-
+//////////////////////////////////////////////////////////
+// FUNCTION
+//////////////////////////////////////////////////////////
 
 // Returns accuracy, missed words, and error characters
 function compareInputs(promptInput, userInput) {
@@ -68,7 +70,7 @@ function compareInputs(promptInput, userInput) {
   let promptMap = {}; // Use 'let' for reassignable variables
   let userMap = {};
 
-  let accuracy = calculateAccuracy(promptInput, userInput.trim());
+  let accuracy = calculateAccuracy(promptInput, userInput);
 
   for (let index = 0; index < promptInputArray.length; index++) {
     if (promptInputArray[index] !== userInputArray[index]) {
@@ -79,6 +81,7 @@ function compareInputs(promptInput, userInput) {
     }
   }
 
+  console.log("differences", differMaps(promptMap,userMap));
   errorCharacters = getErrorCharacters(differMaps(promptMap, userMap));
   return { accuracy, missedWords, errorCharacters };
 }
@@ -86,7 +89,7 @@ function compareInputs(promptInput, userInput) {
 
 // Adds elements from one map to another
 function combineMaps(map1, map2) {
-  const combinedMap = {map1};
+  const combinedMap = { ...map1};
   for (let key in map2) {
     if (combinedMap.hasOwnProperty(key)) {
       combinedMap[key] += map2[key];
@@ -114,7 +117,7 @@ return differMap;
 function getErrorCharacters(map1) {
   const errorCharacters = [];
   for (let key in map1) {
-    if (map1[key] > 0) {
+    if (map1[key] < 0) {
       errorCharacters.push(key);
     }
   }
