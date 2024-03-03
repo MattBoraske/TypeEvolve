@@ -2,7 +2,14 @@ import React from 'react';
 import Keyboard from '../keyboard-component/Keyboard';
 import './results-display.css';
 
+
 const ResultsDisplay = ({ elapsedTime, targetText, text, comparisonResults }) => {
+
+  function clearEverything(){
+    comparisonResults = [];
+  }
+
+
   return (
     <div className="results-display fade-in"> {/* Add the fade-in class here */}
       <h3>Results</h3>
@@ -17,6 +24,7 @@ const ResultsDisplay = ({ elapsedTime, targetText, text, comparisonResults }) =>
           <Keyboard />
         </div>
       )}
+      <button class="reset" onClick={clearEverything}>Reset</button>
     </div>
   );
 };
