@@ -1,6 +1,9 @@
+// ResultsDisplay.js
+
 import React, {useState} from 'react';
 import Keyboard from '../keyboard-component/keyboard';
 import StatsDisplay from '../stats-component/stats'; // Import the new component
+import ResetButton from '../reset-button/reset-button'; // Import the ResetButton component
 import './results-display.css';
 
 const ResultsDisplay = ({ elapsedTime, targetText, text, comparisonResults, keysTyped }) => {
@@ -15,7 +18,6 @@ const ResultsDisplay = ({ elapsedTime, targetText, text, comparisonResults, keys
     <div className="results-display fade-in">
       {realComparisonResults && (
         <div>
-          {/* Use the StatsDisplay component and pass the necessary props */}
           <StatsDisplay 
             realComparisonResults={realComparisonResults} 
             text={text} 
@@ -27,7 +29,7 @@ const ResultsDisplay = ({ elapsedTime, targetText, text, comparisonResults, keys
             text={text}
             keysTyped={keysTyped}
           />
-          <button className='reset' onClick={clearDisplay}>Reset</button>
+          <ResetButton onReset={clearDisplay} />
         </div>
       )}
     </div>

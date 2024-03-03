@@ -14,19 +14,12 @@
 }
 
 .reset {
-  font-family: 'Source Code Pro', monospace; /* Sets the font family to Source Code Pro */
-}
+  font-size: 30px;
+  font-family: 'Source Code Pro', monospace;
+  margin-left: 500px; /* This will push the button to the right */
+  width: 200px;
+  height: 100px;
+  margin-bottom: 50px;
+  margin-top: 15px;
 
-.reset {
-  border: none;
-  color: rgb(226, 17, 17);
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 20px;
-  margin: 4px 2px;
-  cursor: pointer;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-weight: 800;
 }
