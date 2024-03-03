@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './target-box.css';
+import ResultsDisplay from '../results-display/results-display';
 
-const TextBox = ({ text, backendtext }) => {
+const TextBox = ({ text }) => {
+  
   const targetText = "This is the target text";
   const [startTime, setStartTime] = useState(null);
   const [endTime, setEndTime] = useState(null);
@@ -13,8 +15,10 @@ const TextBox = ({ text, backendtext }) => {
       setStartTime(new Date());
       setTimerRunning(true);
     }
+  console.log(text.split(" ").length);
+  console.log(targetText.split(" ").length);
 
-    if (text.length === targetText.length && timerRunning) {
+    if (text.split(" ").length - 1 === targetText.split(" ").length && timerRunning) {
       setEndTime(new Date());
       setTimerRunning(false);
       // Call compareInputs here and save the results in state
@@ -31,14 +35,16 @@ const TextBox = ({ text, backendtext }) => {
       <div className="text-box">{text}</div>
       {!timerRunning && endTime && (
         <div>
-          Time taken: {elapsedTime} seconds
-          Target: {targetText}
-          Actual: {text}
+          Time taken: {elapsedTime} seconds <br></br>
+          Target: {targetText} <br></br>
+          Actual: {text} <br></br>
           {/* Display comparison results */}
           {comparisonResults && (
             <div>
-              Accuracy: {comparisonResults.accuracy}%
-              Missed words: {comparisonResults.missedWords.join(", ")}
+              <br></br>
+              Accuracy: {comparisonResults.accuracy}% <br></br>
+              WPM: {(text.split(" ").length/(elapsedTime*(1/60))).toFixed(0)} <br></br>
+              Missed words: {comparisonResults.missedWords.join(", ")} <br></br>
               Error characters: {comparisonResults.errorCharacters.join(", ")}
               
               {/* Render missed words and error characters as needed */}
@@ -133,12 +139,13 @@ function compCountStr(str1,str2) {
 
 // Breaks down a string into the characters and their occurences.
 function decompStr(inputStr) {
+  let size = inputStr != null ? inputStr.length: 0;
   const charMap = {};
-  for (let inputChar of inputStr) {
-    if (charMap[inputChar]) {
-      charMap[inputChar]++;
+  for (let index = 0; index < size; index++) {
+    if (charMap[inputStr.charAt(index)]) {
+      charMap[inputStr.charAt(index)]++;
     } else {
-      charMap[inputChar] = 1;
+      charMap[inputStr.charAt(index)] = 1;
     }
   }
   return charMap;

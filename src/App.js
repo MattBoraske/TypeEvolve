@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import ParentComponent from './components/textbox-typingbox-parent/textbox-typingbox-parent';
+import ResultsDisplay from './components/results-display/results-display';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           The AI Typing Helper.
         </h3>
         <ParentComponent />
+        <ResultsDisplay/>
       </header>
     </div>
   );
