@@ -13,8 +13,10 @@ const TextBox = ({ text, backendtext }) => {
       setStartTime(new Date());
       setTimerRunning(true);
     }
+  console.log(text.split(" ").length);
+  console.log(targetText.split(" ").length);
 
-    if (text.length === targetText.length && timerRunning) {
+    if (text.split(" ").length - 1 === targetText.split(" ").length && timerRunning) {
       setEndTime(new Date());
       setTimerRunning(false);
       // Call compareInputs here and save the results in state
@@ -39,6 +41,7 @@ const TextBox = ({ text, backendtext }) => {
             <div>
               <br></br>
               Accuracy: {comparisonResults.accuracy}% <br></br>
+              WPM: {(targetText.split(" ").length/(elapsedTime*(1/60))).toFixed(0)} <br></br>
               Missed words: {comparisonResults.missedWords.join(", ")} <br></br>
               Error characters: {comparisonResults.errorCharacters.join(", ")}
               
@@ -134,12 +137,13 @@ function compCountStr(str1,str2) {
 
 // Breaks down a string into the characters and their occurences.
 function decompStr(inputStr) {
+  let size = inputStr != null ? inputStr.length: 0;
   const charMap = {};
-  for (let inputChar of inputStr) {
-    if (charMap[inputChar]) {
-      charMap[inputChar]++;
+  for (let index = 0; index < size; index++) {
+    if (charMap[inputStr.charAt(index)]) {
+      charMap[inputStr.charAt(index)]++;
     } else {
-      charMap[inputChar] = 1;
+      charMap[inputStr.charAt(index)] = 1;
     }
   }
   return charMap;
