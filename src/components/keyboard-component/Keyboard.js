@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import './Keyboard.css';
-import TextBox from '../target-box/target-box';
 
+/**
+ * Decomposes an input string and maps each index, 0 for correct accuracy and 1 for a missed key
+ */
 function decompStr(inputStr) {
   let size = inputStr != null ? inputStr.length: 0;
   const charMap = {};
@@ -15,6 +17,12 @@ function decompStr(inputStr) {
   return charMap;
 }
 
+/**
+ * 
+ * @param {*} map1 Initial map from the user input (green)
+ * @param {*} map2 The actual map that the prompt says (red)
+ * @returns The highlighted result of the users input along with the actual input
+ */
 function differMaps(map1, map2) {
   const differMap = { ...map1};
   for (let key in map2) {
@@ -27,12 +35,11 @@ function differMaps(map1, map2) {
   return differMap;
 }
 
-function noSpaceStr(inputStr) {
-  let noSpaceStr = inputStr != null ? inputStr.replace(" ",""): null;
-  let size = noSpaceStr != null ? noSpaceStr.length: 0;
-  return size;
-}
-
+/**
+ * 
+ * @param {*} param0  A component consiting of the target text (given from the user), the input text and how many keys are being typed
+ * @returns  the keyboard component
+ */
 const Keyboard = ({targetText, text, keysTyped}) => {
   const accuracy = {
     a: 0, b: 0, c: 0, d: 0, e: 0,
