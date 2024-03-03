@@ -1,9 +1,10 @@
 [Model](https://huggingface.co/TheBloke/CapybaraHermes-2.5-Mistral-7B-GGUF)
 
-[llama-cpp](https://github.com/ggerganov/llama.cpp)
-[llama-cpp server](https://github.com/ggerganov/llama.cpp/blob/master/examples/server/README.md)
+Resources:
+- [llama-cpp](https://github.com/ggerganov/llama.cpp)
+- [llama-cpp server](https://github.com/ggerganov/llama.cpp/blob/master/examples/server/README.md)
 
-steps to build llama-cpp server on Mac M1:
+Steps to Run Llama-cpp Server on Mac M1:
 - download the model and store it in models/ directory
 - git clone https://github.com/ggerganov/llama.cpp
 - cd llama.cpp
