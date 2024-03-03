@@ -43,6 +43,7 @@ const TextBox = ({ text }) => {
             <div>
               <br></br>
               Accuracy: {comparisonResults.accuracy}% <br></br>
+              WPM: {(text.split(" ").length/(elapsedTime*(1/60))).toFixed(0)} <br></br>
               Missed words: {comparisonResults.missedWords.join(", ")} <br></br>
               Error characters: {comparisonResults.errorCharacters.join(", ")}
               
