@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './keyboard.css';
+import './Keyboard.css';
 import TextBox from '../target-box/target-box';
 
 function decompStr(inputStr) {

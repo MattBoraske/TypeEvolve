@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Keyboard from '../keyboard-component/keyboard';
+import Keyboard from '../keyboard-component/Keyboard';
 import StatsDisplay from '../stats-component/stats';
 import ResetButton from '../reset-button/reset-button';
 import './results-display.css';
