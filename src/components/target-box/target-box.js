@@ -79,7 +79,9 @@ function compareInputs(promptInput, userInput) {
 
   for (let index = 0; index < promptInputArray.length; index++) {
     if (promptInputArray[index] !== userInputArray[index]) {
-      missedWords.push(promptInputArray[index]); // Assuming missedWords is intended to be an array
+      let missedWord = promptInputArray[index].replace(", ","");
+      missedWord.replace(". ","");
+      missedWords.push(missedWord); // Assuming missedWords is intended to be an array
 
       promptMap = combineMaps(promptMap, decompStr(promptInputArray[index]));
       userMap = combineMaps(userMap, decompStr(userInputArray[index]));
