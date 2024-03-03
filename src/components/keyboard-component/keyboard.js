@@ -49,7 +49,9 @@ const Keyboard = ({targetText, text, keysTyped}) => {
     u: 0, v: 0, w: 0, x: 0, y: 0, z: 0,
   };
 
+  //Decompositions the prompt string into the text map
   const promptTextMap = decompStr(targetText)
+  //Decompositions the input string into its own text map
   const userTextMap = decompStr(text)
 
   const differMap = differMaps(promptTextMap,userTextMap);
