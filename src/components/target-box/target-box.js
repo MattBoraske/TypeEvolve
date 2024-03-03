@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './target.css';
+import './target-box.css';
 
 const TextBox = ({ text, backendtext }) => {
   const targetText = "This is the target text";

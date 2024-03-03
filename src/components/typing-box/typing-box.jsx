@@ -1,6 +1,6 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form';
-import './Typings.css';
+import './typing-box.css';
 
 const Typings = ({ onInputChange, currentInput }) => {
   const handleChange = (event) => {
