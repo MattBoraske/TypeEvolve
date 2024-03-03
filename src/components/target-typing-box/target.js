@@ -59,7 +59,6 @@ const TextBox = ({ text, backendtext }) => {
 export default TextBox;
 
 
-=======
 // Returns accuracy, missed words, and error characters
 function compareInputs(promptInput, userInput) {
   const promptInputArray = promptInput.split(" ");
@@ -181,4 +180,3 @@ function levenshteinDistance(str1, str2) {
   return matrix[str1.length][str2.length];
 }
 
-export default TextBox;
