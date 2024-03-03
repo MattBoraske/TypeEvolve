@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&display=swap');
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -9,6 +11,10 @@
 
 .fade-in {
   animation: fadeIn 1s ease-out;
+}
+
+.reset {
+  font-family: 'Source Code Pro', monospace; /* Sets the font family to Source Code Pro */
 }
 
 .reset {
