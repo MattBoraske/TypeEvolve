@@ -26,7 +26,7 @@ const TextBox = ({ text }) => {
   ////////////////////////////////////////////////////////////////
   // Stop timer when text matches target text
   /////////////////////////////////////////////////////////////////
-    if (text === targetText && timerRunning) {
+    if (text.length === targetText.length && timerRunning) {
       setEndTime(new Date());
       setTimerRunning(false);
     }
