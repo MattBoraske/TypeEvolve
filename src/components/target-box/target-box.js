@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './target-box.css'; // Make sure the CSS path is correct
 import ResultsDisplay from '../results-display/results-display'; // Ensure this component is correctly imported
-import { compareInputs } from '../typing-box/typing-box'// Adjust the path as necessary
 
 const TextBox = ({ text, targetText }) => {
   const [startTime, setStartTime] = useState(null);
