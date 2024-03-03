@@ -10,8 +10,8 @@ function App() {
         <h1 className="AppName">
           TetraTyper
         </h1>
-        <h3>
-          The AI Typing Helper.
+        <h3 className="typingEffect">
+        The AI Typing Helper.
         </h3>
         <ParentComponent />
         <ResultsDisplay/>

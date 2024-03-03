@@ -1,0 +1,9 @@
+.reset-button {
+    border: none;
+    background-color: transparent;
+    font-family: inherit;
+    padding: 0;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  

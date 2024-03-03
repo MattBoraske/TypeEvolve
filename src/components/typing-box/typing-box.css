@@ -3,6 +3,8 @@
 .typingForm {
     max-width: 500px;
     margin: auto; /* Center the form horizontally */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Horizontal offset, vertical offset, blur radius, color */
+    align-items: center;
 }
 
 .typingForm .form-control {
@@ -10,5 +12,14 @@
     align-items: center;
     height: 100px; /* Increased the height of form controls */
     width: 500px;
-    font-size: 24px; /* Increase the font size */
+    font-size: 30px; /* Increase the font size */
+    text-align: center; /* Centers text inside the input box */
 }
+
+.smallElement {
+    margin-top: 10px; /* Space above the small element */
+    text-align: center; /* Center the content */
+    font-size: 12px; /* Smaller font size for the small element */
+    color: #666; /* Lighter text color */
+  }
+  
