@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './keyboard.css';
 
 /**
@@ -73,7 +73,6 @@ const Keyboard = ({targetText, text, keysTyped}) => {
 
   console.log("accuracy",accuracy);
 
-  const [hoveredKey, setHoveredKey] = useState(null);
 
   const getKeyColor = (value) => {
 
@@ -121,14 +120,14 @@ const Keyboard = ({targetText, text, keysTyped}) => {
 
   return (
     <div className="keyboard">
+      <h3 style={{ color: 'yellow', fontWeight: 'bold' }}>Keyboard Heatmap</h3>
       {rows.map((row, rowIndex) => (
         <div key={rowIndex} className="keyboard-row">
           {row.map((key) => (
             <div 
               key={key} 
               className="keyboard-key-container"
-              onMouseEnter={() => setHoveredKey(key)}
-              onMouseLeave={() => setHoveredKey(null)}
+              // onMouseEnter and onMouseLeave handlers removed
             >
               <button
                 className="keyboard-key"
@@ -136,11 +135,7 @@ const Keyboard = ({targetText, text, keysTyped}) => {
               >
                 {key}
               </button>
-              {hoveredKey === key && (
-                <div className="keyboard-tooltip">
-                  {accuracy[key.toLowerCase()]}
-                </div>
-              )}
+              {/* Conditional rendering for tooltip on hover removed */}
             </div>
           ))}
         </div>
@@ -148,5 +143,6 @@ const Keyboard = ({targetText, text, keysTyped}) => {
     </div>
   );
 };
+
 
 export default Keyboard;
