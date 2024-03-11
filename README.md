@@ -1,3 +1,13 @@
+
+  ______                    ______            __         
+ /_  __/_  ______  ___     / ____/   ______  / /   _____ 
+  / / / / / / __ \/ _ \   / __/ | | / / __ \/ / | / / _ \
+ / / / /_/ / /_/ /  __/  / /___ | |/ / /_/ / /| |/ /  __/
+/_/  \__, / .___/\___/  /_____/ |___/\____/_/ |___/\___/ 
+    /____/_/                                             
+
+
+
 [Google Docs](https://docs.google.com/document/d/1rpS6eoXiWS2pz4CO6Unv7P4owfa87kCua4z94uJKJ1U/edit)
 
 [Model](https://huggingface.co/TheBloke/CapybaraHermes-2.5-Mistral-7B-GGUF)
