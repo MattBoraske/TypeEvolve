@@ -1,7 +1,6 @@
+<div align="center">
 
 [![](docs/TypeEvolve-front-page.PNG)](https://www.youtube.com/watch?v=kURE0gySzmw)
-
-<div align="center">
   
 ## <strong>[View the demo here!](https://www.youtube.com/watch?v=kURE0gySzmw)</strong>
 
