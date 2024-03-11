@@ -13,6 +13,8 @@
 /_/ \_\ |_| \___|_| /__|___/_||_\__,_|_| /_/ \_\___|   |_| \_, | .__/_|_||_\__, |   |_||_| \__,_|_|_||_\___|_|  
                                                             |__/|_|         |___/                                
 ```
+[![Alternate Text](docs/TypeEvolve-front-page.PNG)](https://www.youtube.com/watch?v=kURE0gySzmw)
+
 
 [Google Docs](https://docs.google.com/document/d/1rpS6eoXiWS2pz4CO6Unv7P4owfa87kCua4z94uJKJ1U/edit)
 
