@@ -1,6 +1,9 @@
 
-[![View the demo here!](docs/TypeEvolve-front-page.PNG)](https://www.youtube.com/watch?v=kURE0gySzmw)
+[![](docs/TypeEvolve-front-page.PNG)](https://www.youtube.com/watch?v=kURE0gySzmw)
 
+<div align="center">
+## <strong>[View the demo here!](https://www.youtube.com/watch?v=kURE0gySzmw)</strong>
+</div>
 
 [Google Docs](https://docs.google.com/document/d/1rpS6eoXiWS2pz4CO6Unv7P4owfa87kCua4z94uJKJ1U/edit)
 
