@@ -28,10 +28,10 @@ In a unique application of natural language processing (NLP) technology, "Type E
 # Technical Architecture
 For a visual of how data flows between the application front and backends, please see ['Slide 2' ](https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/795/693/datas/original.png) in the above image gallery.
 
-### Frontend
+## Frontend
 The front-end is a [React](https://github.com/facebook/react) application and [node.js](https://github.com/nodejs/node) is used for the runtime environment. [Axios](https://github.com/axios/axios), an HTTP Client for node.js, is used to send and receive requests from the llama.cpp server.
 
-### Backend
+## Backend
 [Llama.cpp](https://github.com/ggerganov/llama.cpp) is used as the runtime for the models. This choice was made due to its ability to run [GGUF](https://github.com/ggerganov/ggml/blob/master/docs/gguf.md) files, which support quantization. This is when model parameters, typically stored as 16-bit floating point numbers, are scaled down (e.g., to 4-bit integers) to save computational resources without significantly impacting the model’s capabilities. This drastically reduces computational resources while maintaining the model’s effectiveness. A significant advantage of this approach is the elimination of the need for high-end computing hardware, such as dedicated GPUs. Consequently, these models can be efficiently run on [consumer hardware](https://github.com/ggerganov/llama.cpp/discussions/4167). This is practically demonstrated in the provided video demonstration, where "Llama.cpp" runs a 7-billion (7B) parameter LLM seamlessly on a 2020 MacBook Pro equipped with an M1 chip.
 
 A variety of LLM models with different architectures can be run using llama.cpp, including Llama, Mistral, and Gemma. In the provided video demonstration, the current model being used is  [CapybaraHermes-2.5-Mistral-7B](https://huggingface.co/argilla/CapybaraHermes-2.5-Mistral-7B), which a preference tuned [OpenHermes-2.5-Mistral-7B](https://huggingface.co/teknium/OpenHermes-2.5-Mistral-7B) using argilla's [dpo mix 7k](https://huggingface.co/datasets/argilla/dpo-mix-7k). It has been recognized as a robust 7B model, as evidenced by its impressive 7.91 score on the [MTBench](https://huggingface.co/spaces/lmsys/mt-bench) evaluation platform. For reference, the [MTBench paper](https://arxiv.org/abs/2306.05685) reports that ChatGPT-3.5, the OpenAI proprietary model that is consists of over 175 billion parameters, achieves only a marginally higher score of 7.94.
