@@ -26,7 +26,7 @@ Users can then choose to generate a new prompt, where the collected metrics are 
 In a unique application of natural language processing (NLP) technology, "Type Evolve" employs an optimized large. Overall, this adaptive approach promises a dynamic and continuously evolving learning experience for each user.
 
 # Technical Architecture
-For please this [diagram](docs/presentation/slides/slide_app_flow.png) for a visual of how data flows throughout the application.
+Please see this [diagram](docs/presentation/slides/slide_app_flow.png) for a visual of how data flows throughout the application.
 
 ## Frontend
 The front-end is a [React](https://github.com/facebook/react) application and [node.js](https://github.com/nodejs/node) is used for the runtime environment. [Axios](https://github.com/axios/axios), an HTTP Client for node.js, is used to send and receive requests from the llama.cpp server.
