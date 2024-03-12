@@ -61,3 +61,5 @@ To host the model, we use the [server](https://github.com/ggerganov/llama.cpp/tr
 - Refine the keyboard heatmap to enhance its intuitiveness and user-friendliness.
 - Develop a feature enabling users to upload their preferred open-source Large Language Models (LLMs) to the model directory of the llama.cpp server, thereby increasing the customizability of the Type Evolve platform.
 - Implement a feature for streaming newly generated prompts from the LLM in real-time, significantly improving user experience by allowing immediate access to prompts as they are generated, effectively eliminating wait times.
+
+- [test](docs/presentation/slides/slide_app_flow.png)
