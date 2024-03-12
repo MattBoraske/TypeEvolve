@@ -1,10 +1,13 @@
 <div align="center">
 
 [![](docs/TypeEvolve-front-page.PNG)](https://www.youtube.com/watch?v=kURE0gySzmw)
+
+## 🏆 Winner of [HenHacks 2024](https://henhacks2024.devpost.com/) for Best CS Educational Technology Hack! 🚀
   
 ## <strong>[View the demo here!](https://www.youtube.com/watch?v=kURE0gySzmw)</strong>
 
 </div>
+
 
 # Inspiration
 The realm of computer technology education is facing a pivotal challenge: a marked decline in touch typing proficiency using the QWERTY keyboard. This vital skill is being increasingly overshadowed by the rise of two-finger smartphone typing, leading to diverse, inefficient hunt-and-peck methods. This shift underscores the urgent need for effective typing tools in educational contexts.
